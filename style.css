@@ -1,0 +1,254 @@
+:root {
+  --width: 1000px;
+  --headingfont: "Georgia";
+  --bodyfont: "Verdana";
+  --borderstyle: dotted;
+  --bgimage: linear-gradient(#86ba8e, #67af8c);
+  --border: #FFB17A;
+  --link: #67af8c;
+}
+
+:root {
+  --text: #463239;
+  --section: #FFFDED;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #FFFDED;
+    --section: #463239;
+  }
+}
+
+* {
+  scrollbar-color: var(--text) var(--link);
+  overscroll-behavior: none;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  background: var(--border) var(--bgimage);
+  background-attachment: fixed;
+  font-family: var(--bodyfont), sans-serif;
+}
+
+#top {
+  max-width: var(--width);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 1rem calc(2.25rem + 1vw);
+  background: var(--section);
+  --mask:
+    radial-gradient(25.81px at 36px 50%,#000 99%,#0000 101%) 0 calc(50% - 30px)/51% 60px repeat-y,
+    radial-gradient(25.81px at -21px 50%,#0000 99%,#000 101%) 15px 50%/calc(51% - 15px) 60px repeat-y,
+    radial-gradient(25.81px at calc(100% - 36px) 50%,#000 99%,#0000 101%) 100% calc(50% - 30px)/51% 60px repeat-y,
+    radial-gradient(25.81px at calc(100% + 21px) 50%,#0000 99%,#000 101%) calc(100% - 15px) 50%/calc(51% - 15px) 60px repeat-y;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+
+main {
+  margin: 2rem;
+}
+
+#img-text {
+  display: flex;
+  gap: 3rem;
+  margin: 1rem;
+}
+
+.container > ul {
+  margin: 0;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: var(--text);
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container > ul li {
+  list-style-type: none;
+  display: block;
+  text-align: center;
+  padding: 1rem;
+}
+
+h1, h2, h3, h4, nav p {
+  font-family: var(--headingfont), serif;
+  line-height: 1;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+h1 {
+  font-size: 4.5rem;
+  border-bottom: 7px var(--borderstyle) var(--border);
+  padding-bottom: 1rem;
+}
+
+h2, nav p {
+  font-size: calc(1.3rem + 1vw);
+}
+
+h3 {
+  font-size: calc(1.25rem + 1.125vw);
+}
+
+h4 {
+  font-size: calc(1rem + 1vw);
+}
+
+a:link {
+  color: var(--link);
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--border);
+}
+
+a:visited {
+  color: var(--section);
+  text-decoration-color: var(--border);
+}
+
+a:hover, a:focus {
+  color: var(--link);
+  text-decoration-style: wavy;
+  text-decoration-thickness: 1px;
+}
+
+p, ul, ol, details, table {
+  margin: 1rem 0;
+}
+
+p, li, dd, dt, cite, code {
+  line-height: 1.4;
+}
+
+sup, sub {
+  line-height: 0.5;
+}
+
+s, del {
+  text-decoration-color: var(--link);
+  text-decoration-thickness: 2px;
+}
+
+ul ul, ol ul {
+  margin: 0;
+}
+
+ul li::marker {
+  color: var(--border);
+  font-size: 125%;
+  line-height: 1;
+}
+
+ul ul li::marker, ol ul li::marker {
+  color: var(--text);
+}
+
+figure {
+  background: var(--border);
+  border: 10px solid var(--border);
+  border-radius: 8px;
+  margin: 1rem auto;
+  width: 3000px;
+}
+
+figure img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+}
+
+#intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+details {
+  background: var(--text);
+  border-radius: 8px;
+  padding: 1rem 2rem 1rem 1rem;
+  color: var(--section);
+}
+
+details summary {
+  cursor: pointer;
+  padding-left: 0.5rem;
+  color: var(--border);
+}
+
+details > *:not(summary) {
+  margin-left: 1.5rem;
+}
+
+
+#stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.stat-card {
+  background-color: var(--text);
+  color: var(--section);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--border);
+}
+
+.stat-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+}
+
+section {
+  border-bottom: 7px var(--borderstyle) var(--border);
+  padding-bottom: 1rem;
+  scroll-margin-top: 80px;
+}
+
+.compare {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.column {
+  padding: 1rem;
+  border-radius: 14px;
+}
+
+.column li {
+  padding: 0.6rem 0;
+}
+
+#choices .compare h4 {
+  font-size: 1.5rem;
+}
